@@ -153,9 +153,9 @@
   color:gray;
   top:-2px!important;
   opacity: .9;
-  padding-left: 2.5%;
+  padding-left: 3%;
   /*padding-right: 2.5%;*/
-  padding-bottom: 1%;
+  padding-bottom: 2%;
   font-size: 50px!important;
 }
 /*.topMenu2{
@@ -526,7 +526,7 @@ background-color: red;
   /*background-color: black!important;*/
 
 }
-@-webkit-keyframes popoverBackFadeIn{ 0% {background-color: rgba(0, 0, 0, 0);} 100% {background-color: rgba(0, 0, 0, .23);} }
+@-webkit-keyframes popoverBackFadeIn{ 0% {background-color: rgba(0, 0, 0, 0);} 100% {background-color: rgba(0, 0, 0, .25);} }
 @-webkit-keyframes expandInto { 0% {margin-top: -50%;} 100% {margin-top: 0px;} }
 /*@-webkit-keyframes expandOut { 0% {margin-top: 0%;} 100% {margin-top: -50%;} }*/
 
@@ -534,13 +534,13 @@ background-color: red;
     margin-top:10px;
     /*margin-top: 10px;*/
     height: 88%;
-    background-color: rgba(0, 0, 0, .23);
-       -webkit-animation: popoverBackFadeIn .34s;
+    background-color: rgba(0, 0, 0, .25);
+       -webkit-animation: popoverBackFadeIn 1.75s;
        /*margin-botx/tom: 10px;*/
 }
 
 .pBB2{
-   -webkit-animation: expandInto .43s;
+   -webkit-animation: expandInto .35s;
    /*margin-top: 10px;*/
      opacity: .95;
   /*height: 30%;*/
@@ -583,14 +583,14 @@ background-color: red;
 }
 .addCollectionPopoverBack{
     /*padding-top:20px!important;*/
-    background-color: rgba(0, 0, 0, .2);
-    -webkit-animation: popoverBackFadeIn .45s;
+    background-color: rgba(0, 0, 0, .25);
+    -webkit-animation: popoverBackFadeIn 1.75s;
 }
 
-@-webkit-keyframes expandAddCollection { 0% {top: 100%;} 100% {top: 10%;} }
+/*@-webkit-keyframes expandAddCollection { 0% {top: 100%;} 100% {top:11%;} }*/
 
 .collectionAddBack{
-   -webkit-animation: expandAddCollection .45s;
+   /*-webkit-animation: expandAddCollection .3s;*/
   top:10%;
     overflow: scroll!important;
   /*bottom:-10%!important;*/
@@ -1555,6 +1555,12 @@ html {
     /*padding-top:25%;*/
   padding-bottom: 25%;
    /*bottom: 60px;*/
+}
+.popoverBack{
+    /*margin-top:10px;*/
+    /*margin-top: 10px;*/
+    height: 89%;
+       /*margin-botx/tom: 10px;*/
 }
    }
 
