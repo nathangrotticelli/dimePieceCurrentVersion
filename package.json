@@ -1,6 +1,6 @@
 {
-  "name": "U Nightlife",
-  "version": "2.1.0",
+  "name": "Dimepiece",
+  "version": "1.0.0",
   "description": "Production Code for UN App",
   "dependencies": {
     "gulp": "^3.5.6",

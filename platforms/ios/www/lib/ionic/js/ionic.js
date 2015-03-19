@@ -36,7 +36,7 @@ window.ionic.version = '1.0.0-beta.13';
   if (!isDomReady){
     document.addEventListener('DOMContentLoaded', domReady);
   }
-  
+
 
   // From the man himself, Mr. Paul Irish.
   // The requestAnimationFrame polyfill
@@ -2222,7 +2222,7 @@ window.ionic.version = '1.0.0-beta.13';
     windowLoadListenderAttached = true;
     window.addEventListener("load", onWindowLoad, false);
   }
-  
+
   window.addEventListener("load", onWindowLoad, false);
 
   function onPlatformReady() {

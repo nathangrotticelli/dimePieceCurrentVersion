@@ -87,9 +87,9 @@
 
 
 <script id="my-popover.html" type="text/ng-template">
-  <ion-popover-view>
-    <ion-content class="popoverBack" >
-<div class="list">
+  <ion-popover-view class="popoverBack" ng-click="closePopover()">
+    <ion-content>
+<div class="list pBB2">
 
   <label class="item item-radio popBack">
     <input ng-click="$event.stopPropagation(); showSel('Trending')" type="radio" ng-model="feed" ng-value="'Trending'"  name="group">

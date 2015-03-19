@@ -43,9 +43,9 @@
 <script src="js/ionic.swipecards.js"></script>
 
 <script id="addCollection.html" type="text/ng-template">
-  <ion-popover-view>
-    <ion-content class="collectionAddBack" >
-<div class="createColl">
+  <ion-popover-view class="addCollectionPopoverBack" ng-click="closeAddCollection()">
+    <ion-content class="collectionAddBack" ng-click="$event.stopPropagation()">
+<div class="createCollTitle">
     <a class="topMenu2 ion-ios7-close-empty" ng-click="closeAddCollection()"></a>
  Add to Collection
 </div>

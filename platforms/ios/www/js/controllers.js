@@ -377,6 +377,9 @@ $scope.closeMe = function(){
          PetService.setUser(res1.data.user);
               $scope.modal2.remove();
           $state.go('app.login');
+            //  setTimeout(function() {
+            //    $ionicScrollDelegate.scrollTop();
+            // }, 200);
 
        }
       })
@@ -951,14 +954,14 @@ $scope.watchCat = function(watch){
 
   // An elaborate, custom popup
   var myPopup = $ionicPopup.show({
-    template: '<input type="password" ng-model="data.wifi">',
-    title: 'Enter Wi-Fi Password',
-    subTitle: 'Please use normal things',
+    template: '<input type="password" ng-model="data.contactMessage">',
+    title: 'Shoot Us A Message',
+    subTitle: 'Need help? Have a question? Want to suggest a change or new watch?',
     scope: $scope,
     buttons: [
       { text: 'Cancel' },
       {
-        text: '<b>Save</b>',
+        text: '<b>Send</b>',
         type: 'button-positive',
         onTap: function(e) {
           if (!$scope.data.wifi) {
@@ -971,7 +974,7 @@ $scope.watchCat = function(watch){
       }
     ]
   });
-};
+ };
 
      $scope.expandPrice= function(event) {
      event.showPrice = !event.showPrice;
@@ -1234,9 +1237,9 @@ $scope.watchCat = function(watch){
       if($scope.user){
         // PetService.setAddColl(watch);
         $scope.addCollWatch = watch;
+
           $ionicPopover.fromTemplateUrl('addCollection.html', {
-            scope: $scope,
-              animation: 'slide-in-up'
+            scope: $scope
           }).then(function(popover) {
             $scope.createNew=false;
             $scope.popover2 = popover;
@@ -1253,6 +1256,29 @@ $scope.watchCat = function(watch){
 
   $scope.createNewCollection = function(collName,watch){
     // alert('here');
+    // alert($scope.user.collections[0].collectionName);
+      var collectionExists = function(collections,collectionName2){
+      for(x=0;x<collections.length;x++) {
+          if(collections[x].collectionName == collectionName2){
+            // alert('duplicate');
+            return true;
+          }
+        }
+      return false;
+     };
+     // alert();
+     // alert();
+    if(collName.length>0){
+       if(collectionExists($scope.user.collections,collName)){
+         navigator.notification.alert(
+          null,  // message
+          null,         // callback
+          'You already have a collection with that name!'               // buttonName
+        );
+      }else{
+
+
+
     var watchArr = [watch.watchName];
     $scope.user.collections.push({'collectionName':collName,'watches': watchArr } );
 
@@ -1263,6 +1289,8 @@ $scope.watchCat = function(watch){
                     user: $scope.user
                     // collectionName:collection.collectionName
                   });
+                }
+      }
             // $scope.thing123();
   };
 
@@ -1299,12 +1327,16 @@ $scope.watchCat = function(watch){
       }
     };
 $scope.newCollBtn = function(){
+
   $scope.createNew = true;
+   // setTimeout(function() {
+               // $ionicScrollDelegate.resize();
+            // }, 200);
   // $scope.shouldBeOpen = true;
  // $scope.$broadcast("newItemAdded");
 }
-
-
+// cordova.plugins.Keyboard.close();
+// cordova.plugins.Keyboard.automaticScrollToTopOnHiding = true;
      $scope.toggle=PetService.getProfileView();
      $scope.toggle2=PetService.getProfileView2();
      $scope.toggle3=PetService.getProfileView3();
