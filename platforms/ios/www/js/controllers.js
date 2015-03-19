@@ -954,9 +954,9 @@ $scope.watchCat = function(watch){
 
   // An elaborate, custom popup
   var myPopup = $ionicPopup.show({
-    template: '<input type="password" ng-model="data.contactMessage">',
-    title: 'Shoot Us A Message',
-    subTitle: 'Need help? Have a question? Want to suggest a change or new watch?',
+    template: '<textarea style="border:.5px solid black;" ng-model="data.contactMessage" rows="8" cols="50"></textarea>',
+    title: 'Send Us A Message',
+    subTitle: 'Need help? Have a question? Want to suggest a change or watch for the app?',
     scope: $scope,
     buttons: [
       { text: 'Cancel' },
@@ -964,11 +964,23 @@ $scope.watchCat = function(watch){
         text: '<b>Send</b>',
         type: 'button-positive',
         onTap: function(e) {
-          if (!$scope.data.wifi) {
+          if (!$scope.data.contactMessage) {
             //don't allow the user to close unless he enters wifi password
             e.preventDefault();
           } else {
-            return $scope.data.wifi;
+            $http.post('http://stark-eyrie-6720.herokuapp.com/userContactFormMessage',
+              {username: $scope.user.username,
+              emailAddress: $scope.user.userEmail,
+              fullName: $scope.user.userFullName,
+              message: $scope.data.contactMessage
+              }).success(function(){
+                alert('here');
+                // $scope.showAlert("Your message has been sent.","Success!");
+                // $location.path('/app/person/me/feed');
+              }).error(function(){
+                 alert('here22');
+               // $scope.showAlert("Connection to the server could not be acheived at this time.","Failed.");
+              })
           }
         }
       }

@@ -607,25 +607,38 @@ background-color: red;
   font-size: 21px;
 }
 .collections{
+  -webkit-transition: opacity 350ms ease-in-out;
+  -moz-transition: opacity 350ms  ease-in-out;
+  transition: opacity 350ms ease-in-out;*/
   /*top:10%!important;*/
-    padding: 2%;
+    padding: 0%;
+    /*text-align: center!important;*/
+      /*max-height: 30%!important;*/
     /*padding-left: 8%;*/
     /*padding-left: 0;*/
+     margin-right: -1px!important;
     /*m-left:5%!important;*/
     border-top:1px solid lightgray;
 }
-.collections:active{
-  /*background-color: gray;*/
-/*  opacity: .7;*/
-  -webkit-transition: opacity linear 200ms;
-   /*-webkit-transition: opacity linear 200ms;*/
-  /*-webkit-animation: fadeInto 5s linear;*/
-        -webkit-transition-delay: .24s; /* Safari */
-    transition-delay: .24s;
-  /*-webkit-animation: fadeInto 5s linear;*/
-      opacity: .8;
-}
+.profCollectionBtn{
+    /*display: block;*/
+    /*height:20%;*/
+      height:50%!important;
+      /*float: right!important;*/
+      display: block!important;
+      padding-top: 50%;
+      color:white!important;
+      font-size: 40px;
+      /*padding-right: 0!important;*/
 
+      /*vertical-align: middle!important;*/
+}
+.profCollectionDelete{
+  background-color:#ef4e3a;
+}
+.profCollectionShare{
+  background-color:#1aacc3;
+}
 .collectionSection{
     /*padding-right:3%;*/
   display: inline;
@@ -650,6 +663,7 @@ background-color: red;
   max-height: 125px;
   margin-bottom: 3%;
   margin-right: 2%;
+  opacity: inherit!important;
 }
 .collectionItem2{
   min-height: 83px;
@@ -669,20 +683,26 @@ margin-bottom: 3%;
 /*max-width: 80px;*/
 }
 .collectionName{
+
   /*margin-left: 5%;*/
   color:black;
-   text-overflow: ellipsis;
-      margin-bottom: 3.5%;
+  /*margin: auto;*/
+  text-align: center;
+  width: 115%!important;
+  /*padding-left:50%;*/
+     text-overflow: ellipsis;
+  margin-bottom: 5%!important;
+  margin-top: -8px!important;
   /*margin: 0%;*/
   /*text-align: center;*/
-  font-size: 21px;
-  text-decoration: bold;
+  font-size: 22px!important;
+  /*text-decoration: bold!important;*/
 font-family: 'Gafata', sans-serif;
     /*margin-right: 12%;*/
 
     /*padding: 0!important;*/
     /*margin-top:.5%!important;*/
-    margin-left: 2%!important;
+    /*margin-left: 2%!important;*/
     /*margin-bottom: 0!important;*/
 }
 .createCollPic{
@@ -1783,8 +1803,8 @@ html {
 /*  opacity: .7;*/
   -webkit-transition: opacity linear 200ms;
   /*-webkit-animation: fadeInto 5s linear;*/
-        -webkit-transition-delay: .48s; /* Safari */
-    transition-delay: .48s;
+        -webkit-transition-delay: .3s; /* Safari */
+    transition-delay: .3s;
       opacity: .8;
 
 }
@@ -2055,8 +2075,8 @@ html {
 /*  opacity: .7;*/
   -webkit-transition: opacity linear 200ms;
   /*-webkit-animation: fadeInto 5s linear;*/
-        -webkit-transition-delay: .48s; /* Safari */
-    transition-delay: .48s;
+        -webkit-transition-delay: .3s; /* Safari */
+    transition-delay: .3s;
       opacity: .8;
       /*background-color: lightgray;*/
 }

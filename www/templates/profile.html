@@ -76,17 +76,23 @@
   </div>
 
 </div>
-<div ng-show="toggle==false">
-   <div class="collections" ng-click="$event.stopPropagation();" ng-repeat="collection in user.collections.slice().reverse()">
+<ion-list ng-show="toggle==false">
+   <ion-item class="collections" ng-click="$event.stopPropagation();" can-swipe="true" ng-repeat="collection in user.collections.slice().reverse()">
+    <ion-option-button class="profCollectionBtn profCollectionShare ion-share"
+                       ng-click="">
+    </ion-option-button>
+    <ion-option-button class="profCollectionBtn profCollectionDelete ion-minus-circled"
+                       ng-click="">
+    </ion-option-button>
       <h2 class="collectionName">{{collection.collectionName}}</h2>
    <div class="collectionSection" ng-repeat="watch in collection.watches.slice().reverse() | limitTo: 3 ">
    <img class="collectionItem3" src="{{collectionWatchPic(watch)}}">
    </div>
    <div ng-if="collection.watches.length<1" class="collectionItem2">
    </div>
-   </div>
+   </ion-item>
    <div class="bufferColl"></div>
-</div>
+</ion-list>
 
 
  </ion-content>
