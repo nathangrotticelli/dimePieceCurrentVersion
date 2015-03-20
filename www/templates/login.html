@@ -27,7 +27,7 @@
   <!-- <hr class="div12"> -->
 
 <!-- data = data.substr(0, 4) + " " + data.substr(4, 6) -->
-  <div class="eventScroller" ng-repeat="watch in watchList | orderObjectBy:feed:true | limitTo: loadLimit "  ng-click="go_here(watch)" >
+  <div class="eventScroller" ng-repeat="watch in watchList | orderObjectBy:feed:true | limitTo: loadLimit"  ng-click="go_here(watch)" >
 
     <div class="front">
     <img class="full-image" src="{{watch.watchPhoto}}">

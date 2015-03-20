@@ -57,9 +57,9 @@
     </form>
    <br>
    <div class="collections" ng-click="$event.stopPropagation(); addColl(collection,addCollWatch);" ng-repeat="collection in user.collections.slice().reverse()">
-      <h2 class="collectionName">{{collection.collectionName}}</h2>
-   <h1 ng-if="alreadyCollected(collection,addCollWatch)!=true" class="radioColl icon ion-ios7-circle-outline"></h1>
+     <h1 ng-if="alreadyCollected(collection,addCollWatch)!=true" class="radioColl icon ion-ios7-circle-outline"></h1>
     <h1 ng-if="alreadyCollected(collection,addCollWatch)==true"  class="radioColl icon activeTab ion-checkmark-circled"></h1>
+      <h2 class="addCollectionName">{{collection.collectionName}}</h2>
 
    <div class="collectionSection" ng-repeat="watch in collection.watches.slice().reverse() | limitTo: 4 ">
    <img class="collectionItem" src="{{collectionWatchPic(watch)}}">

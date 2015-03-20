@@ -948,7 +948,33 @@ $scope.watchCat = function(watch){
     }
     })
    };
-
+   $scope.deleteCollection = function(collection){
+   var deleteSheet = $ionicActionSheet.show({
+     buttons: [
+       { text: '<p class="deleteCollectionText">Are you sure you want to delete this collection?</p>' },
+       {  text: '<div class="logOut">Delete Collection</div>'}
+     ],
+     titleText: null,
+     cancelText: '<b>Cancel</b>',
+     cancel: function() {
+          // add cancel code..
+        },
+     buttonClicked: function(index) {
+      if(index==0){
+        // index.preventDefault();
+          // alert('log out');
+      }else if(index==1){
+         deleteSheet();
+           // alert($scope.user.collections.indexOf(collection));
+         $scope.user.collections.splice($scope.user.collections.indexOf(collection),1);
+         $http.post('http://stark-eyrie-6720.herokuapp.com/updateCollection',
+                 {
+                    user: $scope.user
+                  });
+      }
+    }
+    })
+   };
    $scope.showPopup = function() {
   $scope.data = {}
 
@@ -956,7 +982,7 @@ $scope.watchCat = function(watch){
   var myPopup = $ionicPopup.show({
     template: '<textarea style="border:.5px solid black;" ng-model="data.contactMessage" rows="8" cols="50"></textarea>',
     title: 'Send Us A Message',
-    subTitle: 'Need help? Have a question? Want to suggest a change or watch for the app?',
+    subTitle: 'Need help? Have a question? Want to suggest a change or watch for the app? <br> We\'d love to hear from you below:',
     scope: $scope,
     buttons: [
       { text: 'Cancel' },
@@ -974,11 +1000,20 @@ $scope.watchCat = function(watch){
               fullName: $scope.user.userFullName,
               message: $scope.data.contactMessage
               }).success(function(){
-                alert('here');
+                // alert('here');
+                 navigator.notification.alert(
+                    null,  // message
+                    null,         // callback
+                    'Message Sent.'               // buttonName
+                  );
                 // $scope.showAlert("Your message has been sent.","Success!");
                 // $location.path('/app/person/me/feed');
               }).error(function(){
-                 alert('here22');
+                  navigator.notification.alert(
+                    'If you see this repeatedly with a strong internet connection, please contact us at DimepieceApp@gmail.com',  // message
+                    null,         // callback
+                    'Failed to connect to server at this time.'               // buttonName
+                  );
                // $scope.showAlert("Connection to the server could not be acheived at this time.","Failed.");
               })
           }
